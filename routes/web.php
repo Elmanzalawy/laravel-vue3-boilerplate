@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/login/google', [AuthController::class, 'loginWithGoogle']);
+Route::get('/login/google/callback', [AuthController::class, 'loginWithGoogleCallback']);
+Route::get('/logout', [AuthController::class, 'logout']);
