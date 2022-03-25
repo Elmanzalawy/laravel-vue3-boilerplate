@@ -1,7 +1,7 @@
 <template>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="#">{{ this.app_name }}</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -67,9 +67,11 @@ export default {
     props:{
         user : Object,
     },
-    mounted(){
-        console.log(this.user)
-    }
+    data() {
+        return {
+            app_name: process.env.MIX_APP_NAME,
+        }
+    },
 }
 </script>
 
